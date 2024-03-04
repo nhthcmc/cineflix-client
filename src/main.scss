@@ -1,0 +1,17 @@
+@import './scss/index.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
