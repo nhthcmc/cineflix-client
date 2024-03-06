@@ -7,7 +7,7 @@ export default function RouteConfig() {
             <Routes>
                 <Route path="*" element={lazyFn(() => import('../pages/home/Home'))} />
                 <Route path="/authen" element={lazyFn(() => import('../pages/authen/Authen'))} />
-                <Route path="/profile" element={lazyFn(() => import('../pages/profile/Profile'), !localStorage.getItem("token") ? false : true)}>
+                <Route path="/account" element={lazyFn(() => import('../pages/account/Account'), !localStorage.getItem("token") ? false : true)}>
                 </Route>
             </Routes>
         </BrowserRouter>

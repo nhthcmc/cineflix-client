@@ -1,12 +1,15 @@
 import { Chat, socketChat } from '@/chatSocket'
 import './chatbox.scss'
 import { User } from '@slices/user.slice'
+import { IonIcon } from '@ionic/react';
+import { send, attach } from 'ionicons/icons';
+import images from '@/images';
 
 export default function ChatBox({ data, user }: {
     data: Chat[],
     user: User
 }) {
-    console.log("dsd", Date.now())
+    console.log("active chat", Date.now())
     return (
         <div className="page-content page-container" id="page-content">
             <div className="padding">
@@ -24,13 +27,13 @@ export default function ChatBox({ data, user }: {
                                                 <div className="media media-chat">
                                                     <img
                                                         className="avatar"
-                                                        src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                                        alt="..."
+                                                        src={images.avatar}
+                                                        alt="avatar"
                                                     />
                                                     <div className="media-body">
                                                         <p>{item.content}</p>
                                                         <p className="meta">
-                                                            <p>{new Date(Number(item.createAt)).getHours()}</p>
+                                                            <small>{new Date(Number(item.createAt)).getHours()}</small>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -39,7 +42,7 @@ export default function ChatBox({ data, user }: {
                                                     <div className="media-body">
                                                         <p>{item.content}</p>
                                                         <p className="meta">
-                                                            <p>{new Date(Number(item.createAt)).getHours()}</p>
+                                                            <small>{new Date(Number(item.createAt)).getHours()}</small>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -68,8 +71,8 @@ export default function ChatBox({ data, user }: {
                             <div className="publisher bt-1 border-light">
                                 <img
                                     className="avatar avatar-xs"
-                                    src="https://img.icons8.com/color/36/000000/administrator-male.png"
-                                    alt="..."
+                                    src={images.avatar}
+                                    alt="avatar"
                                 />
                                 <input
                                     className="publisher-input"
@@ -83,14 +86,14 @@ export default function ChatBox({ data, user }: {
                                     }}
                                 />
                                 <span className="publisher-btn file-group">
-                                    <i className="fa fa-paperclip file-browser" />
+                                    <IonIcon icon={attach} />
                                     <input type="file" />
                                 </span>
-                                <a className="publisher-btn" href="#" data-abc="true">
+                                {/* <a className="publisher-btn" href="#" data-abc="true">
                                     <i className="fa fa-smile" />
-                                </a>
+                                </a> */}
                                 <a className="publisher-btn text-info" href="#" data-abc="true">
-                                    <i className="fa fa-paper-plane" />
+                                    <IonIcon icon={send} />
                                 </a>
                             </div>
                         </div>

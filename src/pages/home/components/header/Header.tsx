@@ -1,4 +1,3 @@
-import React from 'react'
 import './header.scss'
 import images from '@/images'
 import MultiLang from '@/components/multiLang/MultiLang';
