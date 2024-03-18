@@ -1,5 +1,5 @@
-import authenApi from "./authen.api";
+import { authenApi } from "./modules/authen.api";
 
-export const api = {
-    authen: authenApi,
+export default {
+    authen: authenApi
 }

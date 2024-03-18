@@ -1,8 +1,18 @@
+import { useState, useEffect } from 'react';
 import './header.scss'
 import images from '@/images'
+import { useTranslation } from 'react-i18next';
 import MultiLang from '@/components/multiLang/MultiLang';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { StoreType } from '@/store';
 
 export default function Header() {
+  // 
+  const { t } = useTranslation();
+  // const dispatch = useDispatch();
+
+
+  // date
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   const date = today.toDateString()
@@ -20,6 +30,7 @@ export default function Header() {
           </div>
         </div>
         <div className='categ'>
+
           <span className='item'>CLASSICS</span>
           <span className='item'>COLORED</span>
           <span className='item'>ANIMATION</span>

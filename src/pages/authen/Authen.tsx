@@ -1,16 +1,16 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import './authen.scss'
 import Register from './components/Register'
 import Login from './components/Login'
+import { useSelector } from 'react-redux';
+import { StoreType } from '@/store';
 
 export default function Authen() {
-    const containerRef = useRef();
+    const containerRef = useRef<any>();
+    const userStore = useSelector((store: StoreType) => { return store.userStore })
+    console.log("userStore", userStore)
     return (
         <body>
-            {/* <div className="ocean">
-                <div className="wave"></div>
-                <div className="wave"></div>
-            </div> */}
             <section>
                 <div ref={containerRef} className="container" id="container">
                     <Register containerRef={containerRef} />

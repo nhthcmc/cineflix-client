@@ -11,6 +11,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src/"),
       "@components": `${path.resolve(__dirname, "./src/components/")}`,
       "@pages": `${path.resolve(__dirname, "./src/pages/")}`,
+      "@api": `${path.resolve(__dirname, "./src/apis/")}`,
       "@services": `${path.resolve(__dirname, "./src/services/")}`,
       "@routes": `${path.resolve(__dirname, "./src/routes/")}`,
       "@slices": `${path.resolve(__dirname, "./src/store/slices/")}`,
@@ -18,9 +19,11 @@ export default defineConfig({
     },
   },
 
+
+  /* Config Global Scss Variable */
   css: {
     preprocessorOptions: {
-      scss: { addtionalData: `@import "src/scss/index.scss";` }
+      scss: { additionalData: `@import "src/scss/index.scss";` },
     }
   }
 })

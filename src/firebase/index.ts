@@ -17,11 +17,9 @@ const user = auth.currentUser;
 
 export async function uploadToFirebase(file, fallBackUrl = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg") {
     try {
-
         const tailFile = file.name.split('.')[file.name.split('.').length - 1]
         const storage = getStorage(app);
         const imagesRef = ref(storage, `image_${Date.now() * Math.random()}.${tailFile}`);
-
         let res = await uploadBytes(imagesRef, file)
         let url = await getDownloadURL(res.ref)
         return url

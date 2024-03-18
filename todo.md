@@ -1,0 +1,2 @@
+-i18n
+-footer: fix details

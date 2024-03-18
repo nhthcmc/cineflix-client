@@ -1,9 +1,10 @@
 import './multiLang.scss'
 import { useTranslation } from 'react-i18next'
-import React from 'react'
+// import React from 'react'
 import langVI from './vi.png'
 import langEN from './en.png'
 import { Button, Dropdown } from 'antd';
+import React, { useState, ChangeEvent } from 'react';
 
 // const itemMain = [
 //     {
@@ -30,6 +31,13 @@ import { Button, Dropdown } from 'antd';
 
 export default function MultiLang() {
     const { i18n } = useTranslation();
+    const [language, setLanguage] = useState('vi-VN');
+
+    const handleChangeLanguage = (evt: ChangeEvent<HTMLSelectElement>) => {
+        const lang = evt.target.value;
+        setLanguage(lang);
+        i18n.changeLanguage(lang);
+    };
 
     //     const handleGetNowLanguage = () => {
     //         let language = itemMain.find(item => item.key == i18n.language);

@@ -1,4 +1,4 @@
-@import '../../../../scss/index.scss';
+
 
 header {
     font-family: 'Poppins', sans-serif;
@@ -7,6 +7,9 @@ header {
     align-items: center;
     background-color: $bgColor;
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     // top: 0;
 
     //header

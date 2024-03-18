@@ -1,60 +1,41 @@
-import React, { useState } from "react";
-import { api } from "../../../apis";
+import React, { useEffect, useState } from "react";
 import { Modal } from "antd";
 import { loginWithGoogle } from "../../../firebase"
+import apis from "@/apis";
+import { useSelector } from "react-redux";
+import { StoreType } from "@/store";
 
 export default function Login() {
     const [load, setLoad] = useState(false);
+    const userStore = useSelector((store: StoreType) => { return store.userStore })
     async function handleLogin(e: React.FormEvent) {
         e.preventDefault();
-        try {
-            let data = {
-                loginId: (e.target as any).loginId.value,
-                password: (e.target as any).password.value
-            }
-            let result = await api.authen.login(data)
-            localStorage.setItem('token', result.data.token)
-            Modal.success({
-                title: "Welcome",
-                content: result.data.message,
-                onOk: () => {
-                    window.location.href = "/"
-                }
+        let data = {
+            userName: (e.target as any).loginId.value,
+            password: (e.target as any).password.value
+        };
+        apis.authen.getToken(data)
+            .then(res => {
+                localStorage.setItem('token', res.data.data)
+                console.log("login", res)
+                Modal.success({
+                    content: "Đăng nhập thành công",
+                    onOk: () => {
+                        window.location.href = "/"
+                    }
+                })
             })
-        } catch (err) {
-            Modal.error({
-                title: "Error",
-                content: err.response?.data?.message,
-            })
-        }
+            .catch(err => {
+                console.log("err", err)
+                Modal.error({
+                    content: "Sai thông tin đăng nhập",
+                    okText: "Thử lại"
+                })
+            });
     }
+   
     async function handleLoginWithGoogle() {
-        try {
-            let result = await loginWithGoogle();
-            let data = {
-                googleToken: result.user.accessToken,
-                user: {
-                    email: result.user.email,
-                    avatar: result.user.photoURL,
-                    userName: String(Math.ceil(Date.now() * Math.random())),
-                    password: String(Math.ceil(Date.now() * Math.random()))
-                }
-            }
-            let resultApi = await api.authen.loginWithGoogle(data);
-            localStorage.setItem("token", resultApi.data.token)
-            Modal.success({
-                title: "Welcome",
-                content: resultApi.data.message,
-                onOk: () => {
-                    window.location.href = "/"
-                }
-            })
-        } catch (err) {
-            Modal.error({
-                title: "Error",
-                content: err.response ? err.response.data.message : "Unknown error"
-            })
-        }
+
     }
     return (
         <div className="form-container sign-in-container">
@@ -75,7 +56,7 @@ export default function Login() {
                 </div>
                 <span>or with your email</span>
                 <label>
-                    <input type="text" name="loginId" placeholder="Email" />
+                    <input type="text" name="loginId" placeholder="Username" />
                 </label>
                 <label>
                     <input type="password" name="password" placeholder="Password" />

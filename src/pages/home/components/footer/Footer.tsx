@@ -1,11 +1,13 @@
 import React from 'react'
 import './footer.scss'
 import images from '@/images'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer>
-      <div className='subscribe'>
+      {/* <div className='subscribe'>
         <div className='news'>
           <h1>JOIN OUR NEWSLETTER</h1>
           <p>Get a code for 5% off your first order when you sign up for our newsletter. You'll receive the latest offers, oral care tips, and more straight to your inbox.</p>
@@ -25,7 +27,7 @@ export default function Footer() {
 
         </div>
 
-      </div>
+      </div> */}
       <div className='info'>
         <div className='container'>
           <div className='contact'>

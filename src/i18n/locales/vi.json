@@ -1,0 +1,13 @@
+{
+    "navbar": {
+        "placeHolderSearch": "Tìm...",
+        "login": "Đăng nhập",
+        "signup": "Đăng kí",
+        "logout": "Đăng xuất"
+    },
+    "footer": {
+        "aboutUs": "About us",
+        "address": "Address",
+        "contactUs": "Contact us"
+    }
+}

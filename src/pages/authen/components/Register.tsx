@@ -1,30 +1,12 @@
 import React from "react";
-import { api } from "../../../apis";
 import { Modal } from 'antd'
 
-export default function Register({ containerRef }) {
+export default function Register({ containerRef }: {
+    containerRef: any
+}) {
     async function handleRegister(e: React.FormEvent) {
         e.preventDefault();
-        try {
-            let newUser = {
-                userName: (e.target as any).userName.value,
-                password: (e.target as any).password.value,
-                email: (e.target as any).email.value,
-            }
-            let result = await api.authen.register(newUser);
-            Modal.info({
-                title: "Please check your email to verify!",
-                content: result.data.message,
-                onOk: () => {
-                    containerRef.current.classList.remove("right-panel-active");
-                }
-            })
-        } catch (err) {
-            Modal.error({
-                title: 'Error',
-                content: err.response.data.message
-            })
-        }
+
     }
     return (
         <div className="form-container sign-up-container">
