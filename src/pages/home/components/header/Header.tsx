@@ -31,7 +31,10 @@ export default function Header() {
         </div>
         <div className='categ'>
 
-          <span className='item'>CLASSICS</span>
+          <span className='item'>
+            {/* {t('navbar.classics')} */}
+            CLASSICS
+          </span>
           <span className='item'>COLORED</span>
           <span className='item'>ANIMATION</span>
           <span className='item'>FEATURED</span>
@@ -49,7 +52,11 @@ export default function Header() {
         </div>
         <div className='right'>
           <span className="material-symbols-outlined">search</span>
-          <span className="material-symbols-outlined" id="login-button">account_circle</span>
+          <div onClick={() => {
+            window.location.href = '/authen';
+          }} className='user_authen'>
+            <span className="material-symbols-outlined" id="login-button">account_circle</span>
+          </div>
           {/* <span className='cart-container'
             onClick={() => {
               navigate("/cart")

@@ -19,7 +19,7 @@ export default function Login() {
                 localStorage.setItem('token', res.data.data)
                 console.log("login", res)
                 Modal.success({
-                    content: "Đăng nhập thành công",
+                    title: "Đăng nhập thành công",
                     onOk: () => {
                         window.location.href = "/"
                     }
@@ -28,12 +28,12 @@ export default function Login() {
             .catch(err => {
                 console.log("err", err)
                 Modal.error({
-                    content: "Sai thông tin đăng nhập",
+                    title: "Sai thông tin đăng nhập",
                     okText: "Thử lại"
                 })
             });
     }
-   
+
     async function handleLoginWithGoogle() {
 
     }

@@ -1,12 +1,32 @@
 import React from "react";
 import { Modal } from 'antd'
+import apis from "@/apis";
 
 export default function Register({ containerRef }: {
     containerRef: any
 }) {
     async function handleRegister(e: React.FormEvent) {
         e.preventDefault();
-
+        try {
+            let newUser = {
+                userName: (e.target as any).userName.value,
+                email: (e.target as any).email.value,
+                password: (e.target as any).password.value
+            };
+            await apis.authen.createUser(newUser)
+            Modal.success({
+                title: "Thành công",
+                onOk: () => {
+                    containerRef.current.classList.remove("right-panel-active");
+                }
+            })
+        } catch (err) {
+            console.log("err", err)
+            Modal.error({
+                title: "Đăng kí không thành công",
+                okText: "Thử lại"
+            })
+        }
     }
     return (
         <div className="form-container sign-up-container">
@@ -27,7 +47,7 @@ export default function Register({ containerRef }: {
                 </div> */}
                 <span>Register with your email
                     <label>
-                        <input required type="text" name="userName" placeholder="Name" />
+                        <input required type="text" name="userName" placeholder="Username" />
                     </label>
                     <label>
                         <input required type="email" name="email" placeholder="Email" />
@@ -40,5 +60,4 @@ export default function Register({ containerRef }: {
             </form>
         </div>
     )
-
 }

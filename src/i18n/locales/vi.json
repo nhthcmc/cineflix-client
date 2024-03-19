@@ -3,11 +3,15 @@
         "placeHolderSearch": "Tìm...",
         "login": "Đăng nhập",
         "signup": "Đăng kí",
-        "logout": "Đăng xuất"
+        "logout": "Đăng xuất",
+        "classics": "Kinh điển",
+        "colored": "Có màu",
+        "animation": "Hoạt hình",
+        "featured": "Nổi bật"
     },
     "footer": {
-        "aboutUs": "About us",
-        "address": "Address",
-        "contactUs": "Contact us"
+        "aboutUs": "Về chúng tôi",
+        "address": "Địa chỉ",
+        "contactUs": "Liên hệ"
     }
 }

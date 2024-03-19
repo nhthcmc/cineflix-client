@@ -3,7 +3,11 @@
         "placeHolderSearch": "Search...",
         "login": "Login",
         "signup": "Sign up",
-        "logout": "Log out"
+        "logout": "Log out",
+        "classics": "classics",
+        "colored": "colored",
+        "animation": "animation",
+        "featured": "featured"
     },
     "footer": {
         "aboutUs": "About us",
