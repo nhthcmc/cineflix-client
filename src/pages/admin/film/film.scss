@@ -3,7 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
 
+    //button upload film
     .btn-upload {
         text-transform: uppercase;
         cursor: pointer;
@@ -22,6 +25,68 @@
         -moz-border-radius: 0.5em;
         -ms-border-radius: 0.5em;
         border-radius: 0.5em;
+    }
+
+    //film manager
+    .container {
+        width: 100%;
+
+        //table head
+        thead {
+            background-color: black;
+            color: white;
+
+            th {
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+            }
+        }
+
+        tbody {
+
+            //buttons
+            button {
+                cursor: pointer;
+                border: none;
+                border-radius: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: larger;
+                color: white;
+            }
+
+            //button source
+            .btn-primary {
+                background-color: black;
+            }
+
+            //button edit
+            .btn-outline-primary {
+                background-color: blue;
+            }
+
+            //button delete
+            .btn-danger {
+                background-color: red;
+            }
+
+            //poster
+            img {
+                width: 120px;
+                height: 190px;
+                border-radius: 10px;
+            }
+
+            tr {
+                height: 250px;
+            }
+
+            td {
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
     }
 
     .film-upload {

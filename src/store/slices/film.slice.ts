@@ -2,14 +2,15 @@ import apis from "@/apis"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 interface Film {
+    id: string,
     title: string,
-    releaseYear: string,
+    releaseYear: number,
     poster: string,
     source: string
 }
 
 interface FilmState {
-    data: Film | null,
+    data: Film[] | null,
     loading: boolean
 }
 
@@ -21,8 +22,11 @@ let initialState: FilmState = {
 const filmSlice = createSlice({
     name: "film",
     initialState,
-    reducers: {},
-
+    reducers: {
+        setData: (state, action) => {
+            state.data = action.payload
+        }
+    },
 })
 
 export const filmReducer = filmSlice.reducer;

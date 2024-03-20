@@ -11,8 +11,7 @@ export default function Header() {
   const { t } = useTranslation();
   // const dispatch = useDispatch();
 
-
-  // date
+  // date 
   const timeElapsed = Date.now();
   const today = new Date(timeElapsed);
   const date = today.toDateString()
@@ -29,7 +28,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className='categ'>
+        <div className='genre'>
 
           <span className='item'>
             {/* {t('navbar.classics')} */}
@@ -52,25 +51,12 @@ export default function Header() {
         </div>
         <div className='right'>
           <span className="material-symbols-outlined">search</span>
-          <div onClick={() => {
-            window.location.href = '/authen';
-          }} className='user_authen'>
+          <div style={{ cursor: 'pointer' }}
+            onClick={() => {
+              window.location.href = '/authen';
+            }} className='user_authen'>
             <span className="material-symbols-outlined" id="login-button">account_circle</span>
           </div>
-          {/* <span className='cart-container'
-            onClick={() => {
-              navigate("/cart")
-            }}
-          > */}
-          {/* <span className="material-symbols-outlined">shopping_cart</span> */}
-          {/* <span className='item cartCount'> */}
-          {/* ({
-                                orderStore.cart?.detail?.reduce((total, cur) => {
-                                    return total + cur.quantity
-                                }, 0) || 0
-                            }) */}
-          {/* </span> */}
-          {/* </span> */}
           {/* {
             userStore.data ? (
               <Dropdown>
@@ -132,7 +118,7 @@ export default function Header() {
         </div>
       </nav>
       {/* nav-border */}
-      <div className='nav-border'></div>
+      {/* <div className='nav-border'></div> */}
     </header>
   )
 }

@@ -6,11 +6,12 @@ export default function RouteConfig() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="*" element={lazyFn(() => import('../pages/home/Home'))} />
+                <Route path="*" element={lazyFn(() => import('../pages/home/Home'))} >
+                    <Route path="films/:id" element={lazyFn(() => import('../pages/home/components/watchFilm/WatchFilm'))} />
+                </Route>
                 <Route path="/authen" element={lazyFn(() => import('../pages/authen/Authen'), localStorage.getItem('token') == null ? true : false)} />
                 <Route path="/admin" element={lazyFn(() => import('../pages/admin/Admin'), localStorage.getItem('token') == null ? false : true)} >
-                    <Route path="film" element={lazyFn(() => import('../pages/admin/film/Upload'))} />
-
+                    {/* <Route path="film/upload" element={lazyFn(() => import('../pages/admin/film/Upload'))} /> */}
                 </Route>
                 {/* <Route path="/account" element={lazyFn(() => import('../pages/account/Account'), !localStorage.getItem("token") ? false : true)}/> */}
             </Routes>

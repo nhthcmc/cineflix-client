@@ -4,7 +4,7 @@ import FilmList from './film/FilmList'
 import { useSelector } from 'react-redux';
 import { StoreType } from '@/store';
 import { useEffect } from 'react';
-import BackHome from '@/routes/BackHome';
+import { Modal } from 'antd';
 
 function Admin() {
     const userStore = useSelector((store: StoreType) => { return store.userStore })
@@ -20,7 +20,6 @@ function Admin() {
     }, [userStore.loading, userStore.data])
 
     return (
-        // <FilmList />
         <>
             {
                 String(userStore.data?.role) == "admin" && <>
@@ -30,7 +29,17 @@ function Admin() {
                         <div>
                             <ul className="utilities">
                                 {/* <li className="users"><a href="#">My Account</a></li> */}
-                                <li className="logout warn"><a href="">Log Out</a></li>
+                                <li className="logout warn"
+                                    onClick={() => {
+                                        Modal.confirm({
+                                            title: "Logout",
+                                            content: "Confirm logout?",
+                                            onOk: () => {
+                                                localStorage.removeItem("token")
+                                            }
+                                        })
+                                    }}
+                                >Log Out</li>
                             </ul>
                         </div>
                     </header>
@@ -39,7 +48,7 @@ function Admin() {
                         <ul className="main">
                             <li className="dashboard"><a href="dashboard">Dashboard</a></li>
                             <li onClick={() => {
-                                window.location.href = 'film';
+                                window.location.href = 'film/upload';
                             }}
                                 className="films"><a href="#">Films</a></li>
                             <li className="plans"><a href="#">Plans</a></li>

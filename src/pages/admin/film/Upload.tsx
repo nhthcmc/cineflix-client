@@ -23,9 +23,6 @@ export default function Upload() {
                 <label>Genre
                     <input type='option' name='genre' placeholder='Genre' />
                 </label>
-                <label>Director
-                    <input type='text' />
-                </label>
                 <label>Info
                     <input type='text' />
                 </label>
