@@ -3,24 +3,24 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import { useSelector } from 'react-redux'
 import { StoreType } from '@/store'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import WatchFilm from './components/watchFilm/WatchFilm'
 import BrowseFilm from './components/browseFilm/BrowseFilm'
-// import Slideshow from './components/carousel/Carousel'
+import Slideshow from './components/carousel/Carousel'
 
 export default function Home() {
     const userStore = useSelector((store: StoreType) => { return store.userStore })
     console.log('userStore', userStore)
+    const location = useLocation();
+    // const toHomePage = location.pathname === '/';
     return (
-
         <div className='home-page'>
             <Header />
             <div className='home-body'>
-                {/* <Slideshow /> */}
+                <Slideshow />
                 <Outlet />
                 {/* <WatchFilm /> */}
                 <BrowseFilm />
-
             </div>
             <Footer />
         </div>

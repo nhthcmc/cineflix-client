@@ -1,6 +1,15 @@
 @import './color.scss';
 @import './font.scss';
 
+li {
+    list-style: none;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 $navH: 40px;
 $headerH: 100px;
 $subHeaderH: 30px;

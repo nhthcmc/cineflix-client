@@ -7,13 +7,16 @@ export default function RouteConfig() {
         <BrowserRouter>
             <Routes>
                 <Route path="*" element={lazyFn(() => import('../pages/home/Home'))} >
-                    <Route path="films/:id" element={lazyFn(() => import('../pages/home/components/watchFilm/WatchFilm'))} />
+                    <Route path="films/:id" element={lazyFn(() => import('../pages/home/components/watchFilm/WatchFilm'), localStorage.getItem('token') == null ? false : true)} />
                 </Route>
                 <Route path="/authen" element={lazyFn(() => import('../pages/authen/Authen'), localStorage.getItem('token') == null ? true : false)} />
                 <Route path="/admin" element={lazyFn(() => import('../pages/admin/Admin'), localStorage.getItem('token') == null ? false : true)} >
-                    {/* <Route path="film/upload" element={lazyFn(() => import('../pages/admin/film/Upload'))} /> */}
+                    <Route path="films" element={lazyFn(() => import('../pages/admin/film/FilmList'))}>
+                        <Route path="update/:id" element={lazyFn(() => import('../pages/admin/film/UpdateForm'))} />
+                        <Route path="upload" element={lazyFn(() => import('../pages/admin/film/Upload'))} />
+                    </Route>
                 </Route>
-                {/* <Route path="/account" element={lazyFn(() => import('../pages/account/Account'), !localStorage.getItem("token") ? false : true)}/> */}
+                <Route path="/account" element={lazyFn(() => import('../pages/account/Account'), localStorage.getItem('token') == null ? false : true)} />
             </Routes>
         </BrowserRouter>
     )

@@ -19,7 +19,6 @@ export default defineConfig({
     },
   },
 
-
   /* Config Global Scss Variable */
   css: {
     preprocessorOptions: {

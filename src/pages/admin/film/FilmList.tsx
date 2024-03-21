@@ -7,8 +7,10 @@ import { StoreType } from '@/store';
 import { useEffect } from 'react';
 import apis from '@/apis';
 import { filmAction } from '@/store/slices/film.slice';
+import { useNavigate } from 'react-router-dom';
 
 export default function FilmList() {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const filmStore = useSelector((store: StoreType) => store.filmStore);
 
@@ -31,6 +33,7 @@ export default function FilmList() {
                             <th>Poster</th>
                             <th>Title</th>
                             <th>Year</th>
+                            <th>Genre</th>
                             <th>Source</th>
                             <th colSpan={2}>Tools</th>
                         </tr>
@@ -46,12 +49,16 @@ export default function FilmList() {
                                         </td>
                                         <td>{item.title}</td>
                                         <td>{item.releaseYear}</td>
-
+                                        <td></td>
                                         <td>
                                             <button className='btn btn-primary'><VideoCameraOutlined /></button>
                                         </td>
                                         <td>
-                                            <button className='btn btn-outline-primary'><EditOutlined /></button>
+                                            <button
+                                                onClick={() => {
+                                                    navigate(`/admin/films/update/${item.id}`)
+                                                }}
+                                                className='btn btn-outline-primary'><EditOutlined /></button>
                                         </td>
                                         <td>
                                             <button

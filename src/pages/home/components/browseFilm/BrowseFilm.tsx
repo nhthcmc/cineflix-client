@@ -19,11 +19,11 @@ export default function BrowseFilm() {
                 console.log(res)
                 dispatch(filmAction.setData(res.data.data))
             })
-    }, [filmTitle])
+    }, [])
     return (
         <div className='browse-film'>
             <div className='container'>
-                <Row gutter={16}>
+                <Row gutter={16} className='row'>
                     {filmStore.data?.map(i => {
                         return (
                             <Col key={Math.random() * Date.now()} className="gutter-row" xs={24} sm={12} md={8} lg={6}>

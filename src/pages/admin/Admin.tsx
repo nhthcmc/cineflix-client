@@ -1,12 +1,16 @@
 import './admin.scss'
 import images from '@/images';
 import FilmList from './film/FilmList'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StoreType } from '@/store';
 import { useEffect } from 'react';
 import { Modal } from 'antd';
+import { userAction } from '@/store/slices/user.slice';
+import UpdateForm from './film/UpdateForm';
+import { Outlet } from 'react-router-dom';
 
 function Admin() {
+    const dispatch = useDispatch()
     const userStore = useSelector((store: StoreType) => { return store.userStore })
     useEffect(() => {
         if (!userStore.data && !userStore.loading) {
@@ -29,17 +33,18 @@ function Admin() {
                         <div>
                             <ul className="utilities">
                                 {/* <li className="users"><a href="#">My Account</a></li> */}
-                                <li className="logout warn"
+                                {/* <li className="logout warn"
                                     onClick={() => {
                                         Modal.confirm({
                                             title: "Logout",
                                             content: "Confirm logout?",
                                             onOk: () => {
                                                 localStorage.removeItem("token")
+                                                dispatch(userAction.setData(null))
                                             }
                                         })
                                     }}
-                                >Log Out</li>
+                                >Log Out</li> */}
                             </ul>
                         </div>
                     </header>
@@ -48,16 +53,33 @@ function Admin() {
                         <ul className="main">
                             <li className="dashboard"><a href="dashboard">Dashboard</a></li>
                             <li onClick={() => {
-                                window.location.href = 'film/upload';
+                                window.location.href = '/films/upload';
                             }}
                                 className="films"><a href="#">Films</a></li>
                             <li className="plans"><a href="#">Plans</a></li>
                             <li className="ads"><a href="#">Ads</a></li>
                             <li className="users"><a href="#">Manage Users</a></li>
+                            <li className="goHome"><a href="/">View homepage</a></li>
+                            <li style={{ cursor: 'pointer' }} className="logout warn"
+                                onClick={() => {
+                                    Modal.confirm({
+                                        title: "Logout",
+                                        content: "Confirm logout?",
+                                        onOk: () => {
+                                            localStorage.removeItem("token")
+                                            dispatch(userAction.setData(null))
+                                        }
+                                    })
+                                }}
+                            >
+                                <a style={{ color: "red" }}>Log Out</a></li>
+
                         </ul>
                     </nav>
                     <main role="main">
-                        <FilmList />
+                        <Outlet />
+                        {/* <FilmList /> */}
+                        {/* <UpdateForm /> */}
                         {/* <section className="panel important">
                     <h2>Write Some News</h2>
                     <ul>

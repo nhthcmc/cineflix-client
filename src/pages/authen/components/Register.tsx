@@ -15,7 +15,7 @@ export default function Register({ containerRef }: {
             };
             await apis.authen.createUser(newUser)
             Modal.success({
-                title: "Thành công",
+                title: "Successful",
                 onOk: () => {
                     containerRef.current.classList.remove("right-panel-active");
                 }
@@ -23,8 +23,8 @@ export default function Register({ containerRef }: {
         } catch (err) {
             console.log("err", err)
             Modal.error({
-                title: "Đăng kí không thành công",
-                okText: "Thử lại"
+                title: "Error",
+                okText: "Try again"
             })
         }
     }

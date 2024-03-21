@@ -28,7 +28,11 @@ const fetchUser = createAsyncThunk(
 const userSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        setData: (state, action) => {
+            state.data = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchUser.pending, (state) => {
             state.loading = true

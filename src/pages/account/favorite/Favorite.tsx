@@ -5,8 +5,12 @@ import { heart } from 'ionicons/icons';
 
 export default function Favorite() {
   return (
-    <div>Favorite
-      <IonIcon icon={heart} />
+    <div className='favorite'>
+      <div className='fav-title'>
+        <span className='name'>Favorites</span>
+        <IonIcon icon={heart} />
+      </div>
+
     </div>
   )
 }

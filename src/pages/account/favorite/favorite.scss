@@ -1,0 +1,12 @@
+.favorite {
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .fav-title {
+        font-size: large;
+        font-weight: bold;
+    }
+
+}

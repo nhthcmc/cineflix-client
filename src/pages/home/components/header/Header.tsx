@@ -3,13 +3,17 @@ import './header.scss'
 import images from '@/images'
 import { useTranslation } from 'react-i18next';
 import MultiLang from '@/components/multiLang/MultiLang';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { StoreType } from '@/store';
+import { userAction } from '@/store/slices/user.slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { StoreType } from '@/store';
+import { Dropdown } from 'react-bootstrap';
+import { Modal } from 'antd';
 
 export default function Header() {
   // 
   const { t } = useTranslation();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const userStore = useSelector((store: StoreType) => { return store.userStore })
 
   // date 
   const timeElapsed = Date.now();
@@ -51,19 +55,19 @@ export default function Header() {
         </div>
         <div className='right'>
           <span className="material-symbols-outlined">search</span>
-          <div style={{ cursor: 'pointer' }}
+          {/* <div style={{ cursor: 'pointer' }}
             onClick={() => {
               window.location.href = '/authen';
             }} className='user_authen'>
             <span className="material-symbols-outlined" id="login-button">account_circle</span>
-          </div>
-          {/* {
+          </div> */}
+          {
             userStore.data ? (
               <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                   <div className='user'>
-                    <span> Hi {isNaN(Number(userStore.data.userName)) ? userStore.data.userName : userStore.data.email.split('@')[0]}!</span>
-                    <img src={userStore.data.avatar} />
+                    <span> Hi {isNaN(Number(userStore.data.userName)) ? userStore.data.userName : userStore.data.userName.split('@')[0]}!</span>
+                    <img src={images.avatar} />
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu
@@ -73,7 +77,7 @@ export default function Header() {
                     window.location.href = "/admin"
                   }}>Admin</Dropdown.Item>
                   <Dropdown.Item onClick={() => {
-                    window.location.href = "/profile"
+                    // window.location.href = "/profile"
                   }}>Profile</Dropdown.Item>
                   <Dropdown.Item onClick={() => {
                     Modal.confirm({
@@ -88,13 +92,14 @@ export default function Header() {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              <div onClick={() => {
-                window.location.href = '/authen';
-              }} className='user_authen'>
+              <div style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  window.location.href = '/authen';
+                }} className='user_authen'>
                 <span className="material-symbols-outlined" id="login-button">account_circle</span>
               </div>
             )
-          } */}
+          }
         </div>
       </div>
       {/* header-border */}

@@ -19,7 +19,7 @@ export default function Login() {
                 localStorage.setItem('token', res.data.data)
                 console.log("login", res)
                 Modal.success({
-                    title: "Đăng nhập thành công",
+                    title: "Welcome",
                     onOk: () => {
                         window.location.href = "/"
                     }
@@ -28,8 +28,8 @@ export default function Login() {
             .catch(err => {
                 console.log("err", err)
                 Modal.error({
-                    title: "Sai thông tin đăng nhập",
-                    okText: "Thử lại"
+                    title: "Wrong username or password",
+                    okText: "Try again"
                 })
             });
     }

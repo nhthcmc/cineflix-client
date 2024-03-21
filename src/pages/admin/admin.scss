@@ -78,9 +78,9 @@ header[role="banner"] .utilities li a {
     padding-right: 0.6em;
 }
 
-.logout a:before {
-    content: "";
-}
+// .logout a:before {
+//     content: "";
+// }
 
 .users a:before {
     content: "";
@@ -131,6 +131,14 @@ nav[role="navigation"] .ads a:before {
 
 nav[role="navigation"] .users a:before {
     content: "";
+}
+
+nav[role="navigation"] .goHome a:before {
+    // content: "";
+}
+
+nav[role="navigation"] .logout a:before {
+    content: "";
 }
 
 /* current nav item */
