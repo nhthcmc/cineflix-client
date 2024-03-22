@@ -12,15 +12,17 @@ export default function Home() {
     const userStore = useSelector((store: StoreType) => { return store.userStore })
     console.log('userStore', userStore)
     const location = useLocation();
-    // const toHomePage = location.pathname === '/';
+    const toHomePage = location.pathname === '/';
     return (
         <div className='home-page'>
             <Header />
             <div className='home-body'>
-                <Slideshow />
+                {toHomePage && <Slideshow />
+                    // && <BrowseFilm />
+                }
                 <Outlet />
-                {/* <WatchFilm /> */}
                 <BrowseFilm />
+                {/* <WatchFilm /> */}
             </div>
             <Footer />
         </div>

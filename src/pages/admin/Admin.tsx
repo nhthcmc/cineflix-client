@@ -6,11 +6,11 @@ import { StoreType } from '@/store';
 import { useEffect } from 'react';
 import { Modal } from 'antd';
 import { userAction } from '@/store/slices/user.slice';
-import UpdateForm from './film/UpdateForm';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 function Admin() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const userStore = useSelector((store: StoreType) => { return store.userStore })
     useEffect(() => {
         if (!userStore.data && !userStore.loading) {
@@ -53,9 +53,9 @@ function Admin() {
                         <ul className="main">
                             <li className="dashboard"><a href="dashboard">Dashboard</a></li>
                             <li onClick={() => {
-                                window.location.href = '/films/upload';
+                                navigate("/films/upload")
                             }}
-                                className="films"><a href="#">Films</a></li>
+                                className="films"><a>Films</a></li>
                             <li className="plans"><a href="#">Plans</a></li>
                             <li className="ads"><a href="#">Ads</a></li>
                             <li className="users"><a href="#">Manage Users</a></li>
@@ -79,7 +79,6 @@ function Admin() {
                     <main role="main">
                         <Outlet />
                         {/* <FilmList /> */}
-                        {/* <UpdateForm /> */}
                         {/* <section className="panel important">
                     <h2>Write Some News</h2>
                     <ul>

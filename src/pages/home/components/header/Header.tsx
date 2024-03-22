@@ -36,11 +36,12 @@ export default function Header() {
 
           <span className='item'>
             {/* {t('navbar.classics')} */}
-            CLASSICS
+            ACTION
           </span>
-          <span className='item'>COLORED</span>
-          <span className='item'>ANIMATION</span>
-          <span className='item'>FEATURED</span>
+          <span className='item'>FANTASY</span>
+          <span className='item'>ADVENTURE</span>
+          <span className='item'>ROMANCE</span>
+          <span className='item'>HORROR</span>
           {/* {
             menu.map(item => (
               <div onClick={() => {
@@ -66,7 +67,7 @@ export default function Header() {
               <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                   <div className='user'>
-                    <span> Hi {isNaN(Number(userStore.data.userName)) ? userStore.data.userName : userStore.data.userName.split('@')[0]}!</span>
+                    <span> Hi {isNaN(Number(userStore.data.userName)) ? userStore.data.userName : userStore.data.userName.split('@')[0]}</span>
                     <img src={images.avatar} />
                   </div>
                 </Dropdown.Toggle>
@@ -118,7 +119,7 @@ export default function Header() {
         </div>
         <div className="right">
           <div className="lang">
-            <MultiLang />
+            {/* <MultiLang /> */}
           </div>
         </div>
       </nav>

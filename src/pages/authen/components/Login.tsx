@@ -54,7 +54,7 @@ export default function Login() {
                     <a href="#" className="social"> <i className="fab fa-facebook-f"></i>
                     </a> */}
                 </div>
-                <span>or with your email</span>
+                <span>or with your username</span>
                 <label>
                     <input type="text" name="loginId" placeholder="Username" />
                 </label>

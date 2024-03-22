@@ -26,13 +26,12 @@ export default function WatchFilm() {
                             <span className='year'>{film[0]?.releaseYear}</span>
                         </div>
                         <div className='genres'>GENRES</div>
-                        <div className='des'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, asperiores! Ex, dolore blanditiis cupiditate, impedit repellendus voluptates labore laborum, quos odio omnis hic optio quibusdam sit eveniet. Asperiores, similique quas?</div>
+                        <div className='des'>{film[0]?.des}</div>
                     </div>
                     <button className='btn btn-save'
                     // onClick={
                     //     Modal.success({
                     //         title: "Saved",
-
                     //     })
                     // }
                     ><HeartOutlined /></button>

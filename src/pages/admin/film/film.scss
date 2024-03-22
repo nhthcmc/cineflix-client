@@ -5,6 +5,7 @@
     align-items: center;
     overflow: scroll;
     overflow-x: hidden;
+    padding: 20px;
 
     //button upload film
     .btn-upload {
@@ -89,7 +90,9 @@
         }
     }
 
-    .film-upload {
+    //upload, update form
+    .film-upload,
+    .film-update {
         padding: 10px;
         max-width: 70%;
         max-height: 80%;

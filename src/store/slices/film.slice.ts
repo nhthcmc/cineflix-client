@@ -6,7 +6,8 @@ interface Film {
     title: string,
     releaseYear: number,
     poster: string,
-    source: string
+    source: string,
+    des: string,
 }
 
 interface FilmState {

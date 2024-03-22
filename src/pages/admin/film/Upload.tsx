@@ -11,7 +11,8 @@ export default function Upload() {
     }
     return (
         <div className='film-upload'>
-            <form onSubmit={(e) => {
+            <form className='film-upload-form'
+             onSubmit={(e) => {
                 handleUpload(e)
             }}>
                 <label>Title

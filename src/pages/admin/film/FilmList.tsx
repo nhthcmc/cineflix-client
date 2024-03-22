@@ -2,7 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import './film.scss';
 import { Table } from 'react-bootstrap';
 import { DeleteOutlined, EditOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import Upload from './Upload'
+import UpdateForm from './UpdateForm';
+import Upload from './Upload';
 import { StoreType } from '@/store';
 import { useEffect } from 'react';
 import apis from '@/apis';
@@ -75,6 +76,7 @@ export default function FilmList() {
                 </Table>
             </div>
             {/* <Upload /> */}
+            {/* <UpdateForm /> */}
         </div>
     )
 }

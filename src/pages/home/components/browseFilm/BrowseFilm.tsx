@@ -10,6 +10,7 @@ import { filmAction } from '@/store/slices/film.slice';
 export default function BrowseFilm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    // const location = useLocation();
     const { filmTitle } = useParams()
     const filmStore = useSelector((store: StoreType) => store.filmStore);
 
